@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Love For Summer</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style/reset.css">
+	<link rel="stylesheet" type="text/css" href="style/index.css">
+	<link rel="stylesheet" type="text/css" href="style/pageA.css">
+	<link rel="stylesheet" type="text/css" href="style/pageB.css">
+	<link rel="stylesheet" type="text/css" href="style/pageC.css">
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+	<div id="content">
+		<ul class="content-wrap">
+			<!-- 第一幅图 -->
+			<li>
+				<div class="a_background">
+                    <div class="a_background_top"></div>
+                    <div class="a_background_middle"></div>
+                    <div class="a_background_botton"></div>
+                </div>
+				<div id="sun"></div>
+				<div class="cloudArea">
+                    <div class="cloud cloud1"></div>
+                    <div class="cloud cloud2"></div>
+                </div>
+			</li>
+			<!-- 第二幅图 -->
+			<li>
+				<!-- 背景图 -->
+                <div class="b_background"></div>
+                <div class="b_background_preload"></div>
+                <!-- 商店 -->
+                <div class="shop">
+                    <div class="door">
+                        <div class="door-left"></div>
+                        <div class="door-right"></div>
+                    </div>
+                    <!-- <button id="open">open</button>
+                    <button id="close">close</button> -->
+                    <!-- 灯 -->
+                    <div class="lamp"></div>
+                </div> 
+                <div class="bird">
+                	
+                </div>
+			</li>
+			<!-- 第三幅图 -->
+			<li>
+                <!-- 背景图 -->
+                <div class="c_background">
+                    <div class="c_background_top"></div>
+                    <div class="c_background_middle"></div>
+                    <div class="c_background_botton"></div>
+                </div>
+                <!-- 小女孩 -->
+                <div class="girl"></div>
+                <!-- 水波 -->
+                <div class="bridge-bottom">
+                    <div class="water">
+                        <div id="water1" class="water_1"></div>
+                        <div id="water2" class="water_2"></div>
+                        <div id="water3" class="water_3"></div>
+                        <div id="water4" class="water_4"></div>
+                    </div>
+                </div>
+                <!-- 星星 -->
+                <ul class="stars">
+                    <li class="stars1"></li>
+                    <li class="stars2"></li>
+                    <li class="stars3"></li>
+                    <li class="stars4"></li>
+                    <li class="stars5"></li>
+                    <li class="stars6"></li>
+                </ul>
+                <div class="logo">
+                	
+                </div>
+            </li>
+		</ul>
+		<div id="snowflake">
+			
+		</div>
+	</div>
+	<div id="boy" class="character">
+		
+	</div>
+	<button id="btn">
+		Go
+	</button>
+	<button id="audio">
+		music
+	</button>
+	
+
+	<script type="text/javascript" src="js/swipe.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript" src="js/boyWalk.js"></script>
+	<script type="text/javascript" src="js/jqueryTransit.js"></script>
+
+	<script type="text/javascript">
+		$(function(){
+			var container = $('#content');
+			var swipe = Swipe(container);
+			function scrollTo(time,proportionX){
+				var distX = container.width() * proportionX;
+            	swipe.scrollTo(distX, time);
+			}
+
+		////////////////////////////////////////////////////////
+        //=================== 动画处理 ====================== //
+        ////////////////////////////////////////////////////////
+    
+        ///////////////
+        // 小孩走路 //
+        //////////////	       
+        var boy = BoyWalk();
+		var music = audio('./music/circulation.wav',1); 
+		var musicBtn = $('#audio');
+		onOff=true;
+		musicBtn.on('click',function(){
+			onOff ? music.pause() : music.play();
+			onOff = !onOff;
+		})
+
+
+        function startWalk(){
+        	$('#sun').addClass('rotation');
+        	$('.cloud:first').addClass('cloud1Anim');
+        	$('.cloud:last').addClass('cloud2Anim');
+        	//开始走路
+        	//then(function(){
+        	    	
+        	boy.walkTo(2000,0.2)
+        	.then(function(){
+        		scrollTo(10000,1);	
+        	}).then(function(){
+        		return boy.walkTo(10000,0.5);
+        	})
+        	.then(function(){
+        		boy.stopWalk();
+        	}).then(function(){
+        		return openDoor();
+        	}).then(function(){
+        		lamp.bright();
+        	}).then(function(){
+        		return boy.toShop(2000);
+        	}).then(function(){
+        		bird.fly();
+        	}).then(function(){
+        		return boy.takeFlower();
+        	}).then(function(){
+        		return boy.outShop(2000);
+        	}).then(function(){
+        		return closeDoor();
+        	}).then(function(){
+        		lamp.dark();
+        	}).then(function(){
+        		scrollTo(6000,2.02);
+        	}).then(function(){
+        		return boy.walkTo(6000,0.15);
+        	}).then(function(){
+        		// return boy.walkTo(1500,0.25,(bridgeY()-girl.getHeight())/visualHeight);
+        		return boy.walkTo(1500,0.25,0.375);
+        	}).then(function(){
+        		// var proportionX = (girl.getOffset().left - boy.getWidth() + girl.getWidth() / 5) / visualWidth;
+        		return boy.walkTo(1500, 0.4);
+        	}).then(function(){
+        		boy.resetOriginal();
+        	}).then(function(){
+        		setTimeout(function(){
+        			girl.rotate();
+        			boy.rotate(function(){
+        				logo.run();
+        			});
+        		},1000);
+        	}).then(function(){
+        		snowflake();
+        	});
+        }
+        $('#btn').click(startWalk);	
+    });
+	</script>
+</body>
+</html>

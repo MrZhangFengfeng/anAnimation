@@ -1,0 +1,205 @@
+#content{
+	width: 100%;
+	height: 100%;
+	/*overflow: hidden;*/
+	position: absolute;
+}
+.content-wrap{
+	position: relative;
+}
+.content-wrap > li{
+	float: left;
+	overflow: hidden;
+	position: relative;
+}
+.character{
+	width: 151px;
+	height: 291px;
+	background: url("../images/boyZFF.png") -0px -291px no-repeat;
+	position: absolute;
+	left: 6%;
+	top: 55%;
+}
+.slowWalk{
+	-webkit-animation-name: person-slow; 
+	-webkit-animation-duration: 950ms;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: steps(1, start);
+	-moz-animation-name: person-slow;
+	-moz-animation-duration: 950ms;
+	-moz-animation-iteration-count: infinite;
+	-moz-animation-timing-function: steps(1, start);
+}
+/* 普通慢走 */
+
+@-webkit-keyframes person-slow {
+	0% {
+		background-position: -0px -291px;
+	}
+	25% {
+		background-position: -602px -0px;
+	}
+	50% {
+		background-position: -302px -291px;
+	}
+	75% {
+		background-position: -151px -291px;	
+	}
+	100% {
+		background-position: -0px -291px;
+	}
+}
+
+@-moz-keyframes person-slow {
+	0% {
+		background-position: -0px -291px;
+	}
+	25% {
+		background-position: -602px -0px;
+	}
+	50% {
+		background-position: -302px -291px;
+	}
+	75% {
+		background-position: -151px -291px;
+	}
+	100% {
+		background-position: -0px -291px;
+	}
+}
+.pauseWalk {
+   -webkit-animation-play-state: paused;
+   -moz-animation-play-state: paused;
+}
+#btn,#audio{
+	width: 100px;
+	height: 60px;
+	position: absolute;
+	top: 100px;
+	border:none;
+	font-size: 26px;
+	background-color: pink;
+	color: #fff;
+	outline: none;
+}
+#btn{
+	left: 100px;	
+	border-radius: 30px 0 0 30px;
+	border-right: 1px solid #fff;	
+}
+#audio{
+	left: 201px;
+	border-radius: 0 30px 30px 0;	
+}
+#btn:hover,#audio:hover{
+	cursor:pointer;
+}
+.slowFlowerWalk {
+	-webkit-animation-name: person-floler-slow;
+	-webkit-animation-duration: 950ms;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: step-start;
+	-moz-animation-name: person-floler-slow;
+	-moz-animation-duration: 950ms;
+	-moz-animation-iteration-count: infinite;
+	-moz-animation-timing-function: step-start;
+}
+@-webkit-keyframes person-floler-slow {
+	0% {
+		background-position: -453px -0px;
+	}
+	25% {
+		background-position: -904px -0px;
+	}
+	50% {
+		background-position: -451px -0px;
+	}
+	75% {
+		background-position: -753px -0px;
+	}
+	100% {
+		background-position: -300px -0px;
+	}
+}
+
+@-moz-keyframes person-floler-slow {
+	0% {
+		background-position: -453px -0px;
+	}
+	25% {
+		background-position: -904px -0px;
+	}
+	50% {
+		background-position: -451px -0px;
+	}
+	75% {
+		background-position: -753px -0px;
+	}
+	100% {
+		background-position: -300px -0px;
+	}
+}
+.boyOriginal{
+	background-position: -150px -0px;
+}
+.boy-rotate {
+	-webkit-animation-name: boy-rotate;
+	-webkit-animation-duration: 850ms;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: step-start;
+	-webkit-animation-fill-mode: forwards;
+	-moz-animation-name: boy-rotate;
+	-moz-animation-duration: 850ms;
+	-moz-animation-iteration-count: 1;
+	-moz-animation-timing-function: step-start;
+	-moz-animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes boy-rotate {
+	0% {
+		background-position: -603px -291px;
+	}
+	16.7% {
+		background-position: -150px -0px;
+	}
+	33.4% {
+		background-position: -453px -291px;
+	}
+	50.1% {
+		background-position: -0px -0px;
+	}
+	66.8% {
+		background-position: -903px -291px;
+	}
+	83.5% {
+		background-position: -753px -291px;
+	}
+	100% {
+		background-position: -603px -291px;
+	}
+}
+
+@-moz-keyframes boy-rotate {
+	0% {
+		/*background-position: -603px -291px;*/
+	}
+	16.7% {
+		background-position: -150px -0px;
+	}
+	33.4% {
+		background-position: -453px -291px;
+	}
+	50.1% {
+		background-position: -0px -0px;
+	}
+	66.8% {
+		background-position: -903px -291px;
+	}
+	83.5% {
+		background-position: -753px -291px;
+	}
+	100% {
+		background-position: -603px -291px;
+	}
+}
+

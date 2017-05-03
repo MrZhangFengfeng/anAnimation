@@ -1,0 +1,25 @@
+*{margin: 0;padding: 0;font-size: 12px;}
+a{text-decoration: none;color: #000;}
+a:hover{text-decoration: none;}
+ul,ol {list-style: none;}
+img {vertical-align: top;border: none;}
+input,select,textarea {border: none;outline: none;background-color: transparent;}
+textarea { resize: none;}
+i{font-style: normal;}
+.fl{float: left;}
+.fr{float: right;}
+body {font-family: punctuation, PingFangSC-Regular, "Microsoft YaHei", "微软雅黑";}
+.show{display: block;}
+.hide{display: none;}
+
+.clearfix:after,
+.clearfix:before {
+    content: "";
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix {
+    zoom: 1;
+}
