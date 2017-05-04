@@ -305,7 +305,7 @@
     height: 200px;
     background-image: url("../images/love.jpg");
     border-radius: 100px;
-    box-shadow: 5px 5px 40px 1px #fff,-5px -5px 40px 1px #fff ;
+    box-shadow: 0px 0px 10px #fff;
     z-index: 999999;
     position: absolute;
     left: 50%;
